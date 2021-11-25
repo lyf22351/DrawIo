@@ -1,1 +1,142 @@
-<mxfile host="app.diagrams.net" modified="2021-11-25T11:22:19.662Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" version="15.8.3" etag="0WvlL9j5MXkzhdZNg-DB" type="github"><diagram id="RYL5cWypOikXH2_Dbf32">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-11-25T12:15:05.163Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="WvPF39mTYIu10AVLOVmU" version="15.8.3" type="github">
+  <diagram id="RYL5cWypOikXH2_Dbf32" name="第 1 页">
+    <mxGraphModel dx="981" dy="488" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;labelBorderColor=none;fontSize=8;fontColor=#000000;align=center;verticalAlign=middle;jumpStyle=sharp;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1240" y="270" />
+              <mxPoint x="450" y="270" />
+              <mxPoint x="450" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-61" value="加锁失败 进行后续入队操作" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-60">
+          <mxGeometry x="-0.6824" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=#FFFFFF;fontColor=#000000;labelBorderColor=none;verticalAlign=middle;align=center;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-1" target="EL-cUlbkvunCO3jdOVsM-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="258.7241379310344" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-1" value="开始" style="ellipse;whiteSpace=wrap;html=1;sketch=1;labelBackgroundColor=#FFFFFF;fontColor=#000000;labelBorderColor=none;verticalAlign=middle;align=center;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="230" y="40" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-16" value="加锁的入口方法&#xa;void acquire(int arg)&#xa;入口方法中将会尝试如下操作" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=60;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=10;fontColor=#000000;strokeColor=default;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="150" y="130" width="260" height="168" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-17" value="1. 尝试加锁&amp;nbsp;tryAcquire" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=10;fontColor=#000000;whiteSpace=wrap;" vertex="1" parent="EL-cUlbkvunCO3jdOVsM-16">
+          <mxGeometry y="60" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-25" value="2.构建同步等待队列或线程入队addWaiter" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=10;fontColor=#000000;" vertex="1" parent="EL-cUlbkvunCO3jdOVsM-16">
+          <mxGeometry y="90" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-26" value="3. 入队后让线程进入等待状态acquireQueued" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=10;fontColor=#000000;" vertex="1" parent="EL-cUlbkvunCO3jdOVsM-16">
+          <mxGeometry y="116" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-24" value="4. 设置当前线程终端" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=10;fontColor=#000000;" vertex="1" parent="EL-cUlbkvunCO3jdOVsM-16">
+          <mxGeometry y="142" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-28" value="" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=none;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-20" target="EL-cUlbkvunCO3jdOVsM-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="930" y="181.25442528735618" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-29" value="以ReentrantLock的非公平独占锁为例进行说明" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#000000;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-28">
+          <mxGeometry x="-0.2152" y="1" relative="1" as="geometry">
+            <mxPoint x="32" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-20" value="&lt;span style=&quot;text-align: left; font-size: 10px;&quot;&gt;tryAcquire&lt;br style=&quot;font-size: 10px;&quot;&gt;该方法需要被继承AQS的实现类重写，用于实现独特的加锁逻辑&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=10;fontColor=#000000;strokeColor=default;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="470" y="145" width="150" height="72.5" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-23" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=#FFFFFF;labelBorderColor=none;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-17" target="EL-cUlbkvunCO3jdOVsM-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=none;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-45" target="EL-cUlbkvunCO3jdOVsM-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="980" y="155.63" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-32" value="c==0&amp;nbsp;&lt;br&gt;即当前锁空闲" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#000000;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-31">
+          <mxGeometry x="-0.2819" relative="1" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=none;fontSize=8;fontColor=#000000;align=center;verticalAlign=middle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-45" target="EL-cUlbkvunCO3jdOVsM-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1030" y="181.25714285714287" as="sourcePoint" />
+            <mxPoint x="1155" y="181.25" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-44" value="c !=0&lt;br&gt;即当前锁已被抢占" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-43">
+          <mxGeometry x="-0.2537" y="-1" relative="1" as="geometry">
+            <mxPoint x="13" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-36" value="" style="edgeStyle=none;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=none;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-30" target="EL-cUlbkvunCO3jdOVsM-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-30" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;把当前线程设置到独占锁变量中&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace; font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;setExclusiveOwnerThread&lt;/font&gt;&lt;/span&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontColor=#000000;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1135" y="310" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-35" value="抢占锁成功&lt;br&gt;AQS加锁流程结束" style="ellipse;whiteSpace=wrap;html=1;rounded=1;fontSize=10;fontColor=#000000;labelBackgroundColor=#FFFFFF;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="240" width="100" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;labelBorderColor=none;fontSize=8;fontColor=#000000;align=center;verticalAlign=middle;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-39" target="EL-cUlbkvunCO3jdOVsM-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-53" value="CAS加锁成功" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-41">
+          <mxGeometry x="-0.2967" relative="1" as="geometry">
+            <mxPoint x="12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=none;labelBorderColor=none;fontSize=8;fontColor=#000000;align=center;verticalAlign=middle;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="860" y="333" />
+              <mxPoint x="860" y="270" />
+              <mxPoint x="450" y="270" />
+              <mxPoint x="450" y="240" />
+              <mxPoint x="410" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-55" value="加锁失败 进行后续入队操作" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-54">
+          <mxGeometry x="-0.1457" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-39" value="&lt;font style=&quot;font-size: 8px; background-color: rgb(255, 255, 255);&quot;&gt;CAS获取锁(设置锁状态state为1)&lt;br style=&quot;font-size: 8px;&quot;&gt;&lt;/font&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace; font-size: 8px;&quot;&gt;&lt;font style=&quot;font-size: 8px; background-color: rgb(255, 255, 255);&quot;&gt;compareAndSetState(0, acquires)&lt;/font&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontColor=#000000;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="905" y="310" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-45" value="&lt;font style=&quot;font-size: 8px&quot;&gt;获取当前锁状态&lt;br&gt;&lt;/font&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;font style=&quot;font-size: 8px&quot;&gt;c = getState();&lt;/font&gt;&lt;/pre&gt;" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;labelBorderColor=none;sketch=1;fontSize=8;fontColor=#000000;strokeColor=default;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="915" y="138.75" width="130" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-50" value="" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;labelBorderColor=none;fontSize=7;fontColor=#000000;align=center;verticalAlign=middle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-46" target="EL-cUlbkvunCO3jdOVsM-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-51" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=7;fontColor=#000000;" vertex="1" connectable="0" parent="EL-cUlbkvunCO3jdOVsM-50">
+          <mxGeometry x="-0.124" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-46" value="&lt;font style=&quot;font-size: 7px&quot;&gt;判断当前线程是否是独占线程&lt;br&gt;（即重入判断）&lt;br&gt;&lt;/font&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace ; font-size: 7px&quot;&gt;&lt;font style=&quot;font-size: 7px&quot;&gt;current == getExclusiveOwnerThread()&lt;/font&gt;&lt;/pre&gt;" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=none;labelBorderColor=none;sketch=1;fontSize=8;align=center;verticalAlign=middle;shadow=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="138.75" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-52" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=none;labelBorderColor=none;fontSize=8;fontColor=#000000;align=center;verticalAlign=middle;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-49" target="EL-cUlbkvunCO3jdOVsM-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EL-cUlbkvunCO3jdOVsM-49" value="&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;font style=&quot;font-size: 8px&quot;&gt;设置当前锁状态+1&lt;/font&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;即记录锁重入数&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;font style=&quot;font-size: 8px&quot;&gt;setState（state+1）&lt;/font&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;fontSize=8;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="151.25" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
