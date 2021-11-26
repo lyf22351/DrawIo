@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-11-26T12:08:04.804Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="7A5YaaBj_-agf45Fo8y5" version="15.8.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-26T12:08:53.867Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="p6i8gB7MGh4MyQXIu2k1" version="15.8.6" type="github">
   <diagram id="RYL5cWypOikXH2_Dbf32" name="第 1 页">
     <mxGraphModel dx="1831" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -201,7 +201,7 @@
         <mxCell id="o5k1iDuJcF4LbuBaIatf-10" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
           <mxGeometry y="138" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-20" value="" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0.228;entryY=0.002;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-18" target="o5k1iDuJcF4LbuBaIatf-19">
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-20" value="" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-18" target="o5k1iDuJcF4LbuBaIatf-19">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="165" y="1000" as="targetPoint" />
           </mxGeometry>
@@ -227,19 +227,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-19" value="enq(node)&#xa;同步等待队列的构建和节点入队操作&#xa;&#xa;for (;;) {&#xa;  Node t = tail;&#xa;  if (t == null) { // Must initialize&#xa;    if (compareAndSetHead(new Node()))&#xa;      tail = head;&#xa;  } else {&#xa;      node.prev = t;&#xa;      if (compareAndSetTail(t, node)) {&#xa;        t.next = node;&#xa;        return t;&#xa;      }&#xa;  }&#xa;}" style="whiteSpace=wrap;fontSize=10;fontColor=#000000;spacing=2;sketch=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="125" y="1005" width="210" height="225" as="geometry" />
+          <mxGeometry x="135" y="985" width="210" height="225" as="geometry" />
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-28" value="进行AQS的尾节点变更" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-27" target="o5k1iDuJcF4LbuBaIatf-31">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="405" y="890" as="targetPoint" />
+            <mxPoint x="425" y="890" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-27" value="node.prev = pred&#xa;将AQS同步等待队列的尾节点关联尾点当前节点的前驱节点&#xa;即把当前节点连接到尾节点的尾部" style="rounded=1;whiteSpace=wrap;labelBackgroundColor=none;sketch=1;fontSize=6;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="325" y="815" width="160" height="30" as="geometry" />
+          <mxGeometry x="345" y="815" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-31" target="o5k1iDuJcF4LbuBaIatf-35">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="405" y="1061.25" as="targetPoint" />
+            <mxPoint x="425" y="1061.25" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-34" value="尾节点引用修改成功" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=6;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-33">
@@ -256,7 +256,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-31" value="&amp;nbsp;compareAndSetTail(pred, node)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;由于AQS的尾节点可能有多个线程进行操作&lt;br&gt;所以使用CAS让尾节点的引用变更为当前节点&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=1;fontSize=6;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="320" y="876.25" width="170" height="90" as="geometry" />
+          <mxGeometry x="340" y="876.25" width="170" height="90" as="geometry" />
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-35" target="EL-cUlbkvunCO3jdOVsM-67">
           <mxGeometry relative="1" as="geometry">
@@ -268,7 +268,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-35" value="pred.next = node&#xa;将尾节点的后继节点设置为当前节点。&#xa;入队操作到此结束，继续进行线程的等待流程" style="rounded=1;whiteSpace=wrap;labelBackgroundColor=none;sketch=1;fontSize=6;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="338.75" y="1020" width="132.5" height="30" as="geometry" />
+          <mxGeometry x="358.75" y="1020" width="132.5" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
