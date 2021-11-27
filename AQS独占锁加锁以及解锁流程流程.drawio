@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-11-27T06:05:31.975Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="AkKf82yOeUDMdDw4OjvV" version="15.8.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-27T07:30:15.642Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="6TykrcRp5M6ji9hWRbGJ" version="15.8.6" type="github">
   <diagram id="RYL5cWypOikXH2_Dbf32" name="第 1 页">
-    <mxGraphModel dx="2272" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1831" dy="1630" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -175,27 +175,6 @@
             <mxPoint x="185" y="620" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-7" value="Node" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="810" y="148" width="160" height="164" as="geometry" />
-        </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-8" value="+ waitStatus: volatile int  &#xa;当前节点等待状态" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
-          <mxGeometry y="26" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-12" value="+ prev: volatile Node&#xa;前驱节点" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
-          <mxGeometry y="52" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-13" value="+ next: volatile Node&#xa;后继节点" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
-          <mxGeometry y="78" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-15" value="+ thread: volatile Thread&#xa;当前节点指向的线程" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
-          <mxGeometry y="104" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-9" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
-          <mxGeometry y="130" width="160" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-10" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
-          <mxGeometry y="138" width="160" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-20" value="" style="rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0.325;entryY=0.022;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-18" target="o5k1iDuJcF4LbuBaIatf-42">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="172.5" y="1030" as="targetPoint" />
@@ -252,17 +231,23 @@
         <mxCell id="o5k1iDuJcF4LbuBaIatf-31" value="&amp;nbsp;compareAndSetTail(pred, node)&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;由于AQS的尾节点可能有多个线程进行操作&lt;br&gt;所以使用CAS让尾节点的引用变更为当前节点&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=1;fontSize=6;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="325" y="921.25" width="170" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-35" target="EL-cUlbkvunCO3jdOVsM-67">
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=6;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-35" target="o5k1iDuJcF4LbuBaIatf-75">
           <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="490" as="targetPoint" />
             <Array as="points">
               <mxPoint x="510" y="1080" />
-              <mxPoint x="510" y="490" />
-              <mxPoint x="345" y="490" />
+              <mxPoint x="510" y="516" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-35" value="pred.next = node&#xa;将尾节点的后继节点设置为当前节点。&#xa;入队操作到此结束，继续进行线程的等待流程" style="rounded=1;whiteSpace=wrap;labelBackgroundColor=none;sketch=1;fontSize=6;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="343.75" y="1065" width="132.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-51" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-42" target="o5k1iDuJcF4LbuBaIatf-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="105.05999999999955" y="1291.87" as="sourcePoint" />
+            <mxPoint x="105.06" y="1331.87" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-42" value="enq(node)&#xa;同步等待队列的构建和节点入队操作" style="swimlane;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=10;fontColor=#000000;html=0;startSize=30;" vertex="1" parent="1">
           <mxGeometry x="80" y="1065" width="210" height="185" as="geometry">
@@ -287,6 +272,238 @@
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-49" value="final boolean nonfairTryAcquire(int acquires) {&#xa;    final Thread current = Thread.currentThread();&#xa;    int c = getState();&#xa;    if (c == 0) {&#xa;        if (compareAndSetState(0, acquires)) {&#xa;            setExclusiveOwnerThread(current);&#xa;            return true;&#xa;        }&#xa;     }&#xa;     else if (current == getExclusiveOwnerThread()) {&#xa;         int nextc = c + acquires;&#xa;         if (nextc &lt; 0) // overflow&#xa;             throw new Error(&quot;Maximum lock count exceeded&quot;);&#xa;         setState(nextc);&#xa;         return true;&#xa;    }&#xa;    return false;&#xa;}" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-48">
           <mxGeometry x="10" y="55" width="220" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-54" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-52" target="o5k1iDuJcF4LbuBaIatf-55">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="24.789999999999992" y="1461.87" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-56" value="尾节点为空&lt;br&gt;说明需要初始化同步等待队列" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-54">
+          <mxGeometry x="-0.3379" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-63" style="rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-52" target="o5k1iDuJcF4LbuBaIatf-65">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="145.37" y="1366.87" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-64" value="尾节点为不空" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-63">
+          <mxGeometry x="-0.2025" y="-1" relative="1" as="geometry">
+            <mxPoint x="4" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-52" value="&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;Node t = tail;&lt;/span&gt;&lt;br style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250) ; padding: 0px ; margin: 0px&quot;&gt;&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;&amp;nbsp; if (t == null)&lt;br&gt;判断尾节点是否为空引用&lt;br&gt;&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="-47.709999999999994" y="1321.87" width="145" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-58" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-55" target="o5k1iDuJcF4LbuBaIatf-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-59" value="初始化头结点成功" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-58">
+          <mxGeometry x="-0.6643" relative="1" as="geometry">
+            <mxPoint y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-55" target="o5k1iDuJcF4LbuBaIatf-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-180.88" y="1517.155714285714" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-180.88" y="1516.87" />
+              <mxPoint x="-180.88" y="1366.87" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-71" value="初始化头结点失败&lt;br&gt;自旋" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-66">
+          <mxGeometry x="-0.7882" y="-3" relative="1" as="geometry">
+            <mxPoint y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-55" value="&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;if (compareAndSetHead(new Node()))&lt;br&gt;CAS初始化头结点&lt;br&gt;&amp;amp;&amp;amp;&lt;br&gt;判断初始化结果&lt;br&gt;&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-91.46" y="1471.87" width="232.5" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-57" target="o5k1iDuJcF4LbuBaIatf-52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-180.88" y="1631.87" />
+              <mxPoint x="-180.88" y="1366.87" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-61" value="自旋" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-60">
+          <mxGeometry x="0.1391" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-70" value="自旋" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-60">
+          <mxGeometry x="-0.8154" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-57" value="&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;tail = head&lt;br&gt;将尾节点同样引用头结点对象&lt;br&gt;即头与尾节点为同一Node对象&lt;br&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="-35.209999999999994" y="1601.87" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-65" target="o5k1iDuJcF4LbuBaIatf-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-73" value="尾节点设置OK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-68">
+          <mxGeometry x="-0.7133" y="-3" relative="1" as="geometry">
+            <mxPoint x="23" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-65" target="o5k1iDuJcF4LbuBaIatf-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-160.88" y="1712.5596551724136" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="276.06" y="1713" />
+              <mxPoint x="-180.94" y="1713" />
+              <mxPoint x="-180.94" y="1367" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-72" value="尾节点设置失败&lt;br&gt;进行自旋" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-69">
+          <mxGeometry x="-0.9168" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-65" value="&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;node.prev = t;&lt;/span&gt;&lt;br style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250) ; padding: 0px ; margin: 0px&quot;&gt;&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; if (compareAndSetTail(t, node))&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;将当前节点的前驱节点赋值为尾节点引用&lt;br&gt;并CAS将AQS同步等待队列尾节点设置为当前节点&lt;br&gt;&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="179.06" y="1289.99" width="195" height="153.75" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-67" target="o5k1iDuJcF4LbuBaIatf-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="540" y="1349" />
+              <mxPoint x="540" y="583" />
+              <mxPoint x="590" y="583" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-67" value="&lt;span style=&quot;text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;t.next = node;&lt;br&gt;将尾节点的后继节点关联为当前节点&lt;br&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="459.1199999999999" y="1349.37" width="150" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-97" style="rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-75" target="o5k1iDuJcF4LbuBaIatf-98">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="745" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-75" value="入队后让线程进入等待状态&#xa;&#xa;acquireQueued" style="swimlane;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;html=0;startSize=35;" vertex="1" parent="1">
+          <mxGeometry x="590" y="450" width="310" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-76" value="&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;final boolean &lt;/span&gt;acquireQueued(&lt;span style=&quot;font-style: italic&quot;&gt;final &lt;/span&gt;Node node, &lt;span style=&quot;font-style: italic&quot;&gt;int &lt;/span&gt;arg) {&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;boolean &lt;/span&gt;failed = &lt;span style=&quot;font-style: italic&quot;&gt;true&lt;/span&gt;;&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;try &lt;/span&gt;{&lt;br&gt;        &lt;span style=&quot;font-style: italic&quot;&gt;boolean &lt;/span&gt;interrupted = &lt;span style=&quot;font-style: italic&quot;&gt;false&lt;/span&gt;;&lt;br&gt;        &lt;span style=&quot;font-style: italic&quot;&gt;for &lt;/span&gt;(;;) {&lt;br&gt;            &lt;span style=&quot;font-style: italic&quot;&gt;final &lt;/span&gt;Node p = node.predecessor();&lt;br&gt;            &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(p == head &amp;amp;&amp;amp; tryAcquire(arg)) {&lt;br&gt;                setHead(node);&lt;br&gt;                p.next = &lt;span style=&quot;font-style: italic&quot;&gt;null&lt;/span&gt;; &lt;span style=&quot;font-style: italic&quot;&gt;// help GC&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;                &lt;/span&gt;failed = &lt;span style=&quot;font-style: italic&quot;&gt;false&lt;/span&gt;;&lt;br&gt;                &lt;span style=&quot;font-style: italic&quot;&gt;return &lt;/span&gt;interrupted;&lt;br&gt;            }&lt;br&gt;            &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(shouldParkAfterFailedAcquire(p, node) &amp;amp;&amp;amp;&lt;br&gt;                parkAndCheckInterrupt())&lt;br&gt;                interrupted = &lt;span style=&quot;font-style: italic&quot;&gt;true&lt;/span&gt;;&lt;br&gt;        }&lt;br&gt;    } &lt;span style=&quot;font-style: italic&quot;&gt;finally &lt;/span&gt;{&lt;br&gt;        &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(failed)&lt;br&gt;            cancelAcquire(node);&lt;br&gt;    }&lt;br&gt;}&lt;/span&gt;&lt;/pre&gt;" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;fontColor=#000000;html=1;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-75">
+          <mxGeometry x="10" y="30" width="290" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="EL-cUlbkvunCO3jdOVsM-67" target="o5k1iDuJcF4LbuBaIatf-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-78" value="AQS同步等待队列数据结构示例&lt;br&gt;双向链表" style="swimlane;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;html=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="-20" width="700" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-79" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center ; text-decoration: underline&quot;&gt;&lt;b&gt;节点一: Node&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;next = 节点二&lt;br&gt;prev = null&lt;br&gt;thread = null&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
+          <mxGeometry x="40" y="254" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="o5k1iDuJcF4LbuBaIatf-78" source="o5k1iDuJcF4LbuBaIatf-82" target="o5k1iDuJcF4LbuBaIatf-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-82" value="head&lt;br&gt;头结点指针" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
+          <mxGeometry x="85" y="204" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-86" value="&lt;p style=&quot;margin: 4px 0px 0px ; text-align: center&quot;&gt;&lt;b&gt;节点三: Node&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px&quot;&gt;next = null&lt;br&gt;prev = 节点二&lt;br&gt;thread = _thread2&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
+          <mxGeometry x="520" y="254" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="o5k1iDuJcF4LbuBaIatf-78" source="o5k1iDuJcF4LbuBaIatf-88" target="o5k1iDuJcF4LbuBaIatf-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-88" value="tail&lt;br&gt;尾结点指针" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
+          <mxGeometry x="565" y="204" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-87" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="o5k1iDuJcF4LbuBaIatf-78" source="o5k1iDuJcF4LbuBaIatf-84" target="o5k1iDuJcF4LbuBaIatf-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-94" value="next" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-87">
+          <mxGeometry x="0.2298" y="-1" relative="1" as="geometry">
+            <mxPoint x="-9" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="o5k1iDuJcF4LbuBaIatf-78" source="o5k1iDuJcF4LbuBaIatf-84" target="o5k1iDuJcF4LbuBaIatf-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-93" value="prev" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-90">
+          <mxGeometry x="0.2836" y="1" relative="1" as="geometry">
+            <mxPoint x="11" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-84" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center ; text-decoration: underline&quot;&gt;&lt;b&gt;节点二: Node&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;next = 节点三&lt;br&gt;prev = 节点一&lt;br&gt;thread = _thread1&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
+          <mxGeometry x="280" y="254" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-85" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="o5k1iDuJcF4LbuBaIatf-78" source="o5k1iDuJcF4LbuBaIatf-79" target="o5k1iDuJcF4LbuBaIatf-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-92" value="next" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-85">
+          <mxGeometry x="-0.1802" relative="1" as="geometry">
+            <mxPoint x="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="o5k1iDuJcF4LbuBaIatf-78" source="o5k1iDuJcF4LbuBaIatf-86" target="o5k1iDuJcF4LbuBaIatf-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-95" value="prev" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-91">
+          <mxGeometry x="0.1512" relative="1" as="geometry">
+            <mxPoint x="6" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-7" value="Node" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
+          <mxGeometry x="270" y="30" width="160" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-8" value="+ waitStatus: volatile int  &#xa;当前节点等待状态" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-12" value="+ prev: volatile Node&#xa;前驱节点" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="52" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-13" value="+ next: volatile Node&#xa;后继节点" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="78" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-15" value="+ thread: volatile Thread&#xa;当前节点指向的线程" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="104" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-107" value="+ waitStatus: volatile int&#xa;当前节点的等待状态" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="130" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-9" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="156" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-10" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-7">
+          <mxGeometry y="164" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-101" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-98" target="o5k1iDuJcF4LbuBaIatf-100">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-102" value="前驱节点为头结点&lt;br&gt;&amp;amp;&amp;amp;&lt;br&gt;获取锁成功" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-101">
+          <mxGeometry x="-0.2526" relative="1" as="geometry">
+            <mxPoint x="17" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-104" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-98" target="o5k1iDuJcF4LbuBaIatf-106">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="767.5" y="1060" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-105" value="前驱节点不为头结点&lt;br&gt;或&lt;br&gt;获取锁失败" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-104">
+          <mxGeometry x="-0.295" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-98" value="&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;final &lt;/span&gt;Node p = node.predecessor();&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(p == head &amp;amp;&amp;amp; tryAcquire(arg))&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;获取当前节点的前驱节点&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;如果前驱节点是头结点意味着&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;当前节点是第一个入队的线程，所以要尝试获取锁&lt;/span&gt;&lt;/pre&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="573.75" y="770" width="342.5" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-100" value="setHead(node);&#xa;设置当前节点头节点&#xa;清空当前节点的 prev，thread属性&#xa;&#xa;p.next = null; // help GC&#xa;将当前节点的前驱节点(头结点)的next属性清空&#xa;前驱节点的引用全部清空，GC回收&#xa;&#xa;完成当前节点转换为头结点的操作，原始头结点GC回收&#xa;" style="rounded=1;whiteSpace=wrap;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="820" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-106" value="shouldParkAfterFailedAcquire(p, node)&#xa;节点waitState设置方法&#xa;对节点等待操作前的状态预处理" style="swimlane;rounded=1;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;html=0;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="552.5" y="1034.83" width="385" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-108" value="&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;white-space: nowrap ; font-style: italic&quot;&gt;private static boolean &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255) ; white-space: nowrap&quot;&gt;shouldParkAfterFailedAcquire(Node pred, Node node) {&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;int &lt;/span&gt;ws = pred.waitStatus;&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws == Node.SIGNAL)&lt;br&gt;&lt;span style=&quot;font-style: italic&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;return true&lt;/span&gt;;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws &amp;gt; 0) {&lt;span style=&quot;font-style: italic&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;do &lt;/span&gt;{&lt;br&gt;            node.prev = pred = pred.prev;&lt;br&gt;        } &lt;span style=&quot;font-style: italic&quot;&gt;while &lt;/span&gt;(pred.waitStatus &amp;gt; 0);&lt;br&gt;        pred.next = node;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    } &lt;span style=&quot;font-style: italic&quot;&gt;else &lt;/span&gt;{&lt;span style=&quot;font-style: italic&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;        compareAndSetWaitStatus(pred, ws, Node.SIGNAL);&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    }&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;return false&lt;/span&gt;;&lt;br&gt;}&lt;/span&gt;&lt;/pre&gt;" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;fontColor=#000000;html=1;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-106">
+          <mxGeometry y="34.99999999999993" width="380" height="210" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
