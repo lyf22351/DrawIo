@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-11-27T07:30:15.642Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="6TykrcRp5M6ji9hWRbGJ" version="15.8.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-27T08:08:43.564Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="Gin-q-pJlDmlL3kxQKvO" version="15.8.6" type="github">
   <diagram id="RYL5cWypOikXH2_Dbf32" name="第 1 页">
-    <mxGraphModel dx="1831" dy="1630" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="6538" dy="4172" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -396,7 +396,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-78" value="AQS同步等待队列数据结构示例&lt;br&gt;双向链表" style="swimlane;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontSize=8;fontColor=#000000;html=1;" vertex="1" parent="1">
-          <mxGeometry x="940" y="-20" width="700" height="380" as="geometry" />
+          <mxGeometry x="-850" y="-380" width="700" height="380" as="geometry" />
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-79" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center ; text-decoration: underline&quot;&gt;&lt;b&gt;节点一: Node&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;next = 节点二&lt;br&gt;prev = null&lt;br&gt;thread = null&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=1;labelBackgroundColor=#FFFFFF;sketch=1;fontColor=#000000;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-78">
           <mxGeometry x="40" y="254" width="160" height="90" as="geometry" />
@@ -496,14 +496,74 @@
         <mxCell id="o5k1iDuJcF4LbuBaIatf-98" value="&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;final &lt;/span&gt;Node p = node.predecessor();&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(p == head &amp;amp;&amp;amp; tryAcquire(arg))&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;获取当前节点的前驱节点&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;如果前驱节点是头结点意味着&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot; , monospace&quot;&gt;&lt;span style=&quot;&quot;&gt;当前节点是第一个入队的线程，所以要尝试获取锁&lt;/span&gt;&lt;/pre&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;align=center;" vertex="1" parent="1">
           <mxGeometry x="573.75" y="770" width="342.5" height="200" as="geometry" />
         </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-114" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-100" target="o5k1iDuJcF4LbuBaIatf-113">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-100" value="setHead(node);&#xa;设置当前节点头节点&#xa;清空当前节点的 prev，thread属性&#xa;&#xa;p.next = null; // help GC&#xa;将当前节点的前驱节点(头结点)的next属性清空&#xa;前驱节点的引用全部清空，GC回收&#xa;&#xa;完成当前节点转换为头结点的操作，原始头结点GC回收&#xa;" style="rounded=1;whiteSpace=wrap;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="1050" y="820" width="210" height="100" as="geometry" />
         </mxCell>
         <mxCell id="o5k1iDuJcF4LbuBaIatf-106" value="shouldParkAfterFailedAcquire(p, node)&#xa;节点waitState设置方法&#xa;对节点等待操作前的状态预处理" style="swimlane;rounded=1;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;html=0;startSize=40;" vertex="1" parent="1">
-          <mxGeometry x="552.5" y="1034.83" width="385" height="240" as="geometry" />
+          <mxGeometry x="552.5" y="1034.83" width="385" height="269.99999999999994" as="geometry">
+            <mxRectangle x="552.5" y="1034.83" width="180" height="40" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="o5k1iDuJcF4LbuBaIatf-108" value="&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;white-space: nowrap ; font-style: italic&quot;&gt;private static boolean &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255) ; white-space: nowrap&quot;&gt;shouldParkAfterFailedAcquire(Node pred, Node node) {&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;int &lt;/span&gt;ws = pred.waitStatus;&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws == Node.SIGNAL)&lt;br&gt;&lt;span style=&quot;font-style: italic&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;return true&lt;/span&gt;;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws &amp;gt; 0) {&lt;span style=&quot;font-style: italic&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;do &lt;/span&gt;{&lt;br&gt;            node.prev = pred = pred.prev;&lt;br&gt;        } &lt;span style=&quot;font-style: italic&quot;&gt;while &lt;/span&gt;(pred.waitStatus &amp;gt; 0);&lt;br&gt;        pred.next = node;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    } &lt;span style=&quot;font-style: italic&quot;&gt;else &lt;/span&gt;{&lt;span style=&quot;font-style: italic&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;        compareAndSetWaitStatus(pred, ws, Node.SIGNAL);&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    }&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;return false&lt;/span&gt;;&lt;br&gt;}&lt;/span&gt;&lt;/pre&gt;" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;fontColor=#000000;html=1;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-106">
-          <mxGeometry y="34.99999999999993" width="380" height="210" as="geometry" />
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-108" value="&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;private static boolean &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;shouldParkAfterFailedAcquire(Node pred, Node node) {&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;int &lt;/span&gt;ws = pred.waitStatus;&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws == Node.SIGNAL)&lt;br&gt;&lt;span style=&quot;font-style: italic&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;return true&lt;/span&gt;;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws &amp;gt; 0) {&lt;span style=&quot;font-style: italic&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;span style=&quot;font-style: italic&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;do &lt;/span&gt;{&lt;br&gt;            node.prev = pred = pred.prev;&lt;br&gt;        } &lt;span style=&quot;font-style: italic&quot;&gt;while &lt;/span&gt;(pred.waitStatus &amp;gt; 0);&lt;br&gt;        pred.next = node;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    } &lt;span style=&quot;font-style: italic&quot;&gt;else &lt;/span&gt;{&lt;span style=&quot;font-style: italic&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;        compareAndSetWaitStatus(pred, ws, Node.SIGNAL);&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;    }&lt;br&gt;    &lt;span style=&quot;font-style: italic&quot;&gt;return false&lt;/span&gt;;&lt;br&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;当前方法的主要作用是将当前节点的前驱节点waitState属性设置为Node.&lt;/span&gt;SIGNAL(-1).&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;pre style=&quot;font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;Node.&lt;/span&gt;SIGNAL代表当前节点的后继节点可以被唤醒&lt;/pre&gt;&lt;/pre&gt;" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;fontColor=#000000;html=1;" vertex="1" parent="o5k1iDuJcF4LbuBaIatf-106">
+          <mxGeometry y="9.999999999999929" width="380" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-113" value="抢占锁成功&lt;br&gt;AQS加锁流程结束" style="ellipse;whiteSpace=wrap;html=1;rounded=1;fontSize=10;fontColor=#000000;labelBackgroundColor=#FFFFFF;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="847.5" width="100" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-121" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-116" target="o5k1iDuJcF4LbuBaIatf-120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-122" value="前驱节点的waitStatue为 -1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-121">
+          <mxGeometry x="-0.4304" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-124" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-116" target="o5k1iDuJcF4LbuBaIatf-123">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-125" value="前驱节点的waitStatue为 -1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-124">
+          <mxGeometry x="-0.2953" y="-2" relative="1" as="geometry">
+            <mxPoint x="17" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-116" value="&lt;pre style=&quot;text-align: left ; font-family: &amp;#34;dejavu sans mono&amp;#34; , monospace&quot;&gt;&lt;span&gt;&lt;span style=&quot;font-style: italic&quot;&gt;int &lt;/span&gt;ws = pred.waitStatus;&lt;br&gt;&lt;span style=&quot;font-style: italic&quot;&gt;if &lt;/span&gt;(ws == Node.SIGNAL)&lt;/span&gt;&lt;/pre&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="1124.74" width="140" height="90.17" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-117" value="" style="edgeStyle=none;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-106" target="o5k1iDuJcF4LbuBaIatf-116">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-129" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-120" target="o5k1iDuJcF4LbuBaIatf-128">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-120" value="当前线程陷入等待&#xa;LockSupport.park(this)" style="rounded=1;whiteSpace=wrap;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="1280" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-123" target="o5k1iDuJcF4LbuBaIatf-75">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="939.9999999999995" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-127" value="进行自旋操作" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#000000;" vertex="1" connectable="0" parent="o5k1iDuJcF4LbuBaIatf-126">
+          <mxGeometry x="-0.8894" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-123" value="&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace;&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;compareAndSetWaitStatus(pred, ws, Node.SIGNAL);&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-family: &amp;quot;dejavu sans mono&amp;quot;, monospace;&quot;&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;将头结点waitState设置为-1&lt;/span&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=1;fontSize=8;fontColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1285" y="1149.74" width="250" height="40.18" as="geometry" />
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-130" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fontSize=8;fontColor=#000000;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="o5k1iDuJcF4LbuBaIatf-128" target="o5k1iDuJcF4LbuBaIatf-75">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="1367" />
+              <mxPoint x="1600" y="516" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5k1iDuJcF4LbuBaIatf-128" value="线程被唤醒，继续自旋获取锁" style="whiteSpace=wrap;html=1;rounded=1;fontSize=8;fontColor=#000000;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="1336.87" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
