@@ -1,1 +1,42 @@
-<mxfile host="app.diagrams.net" modified="2021-12-08T06:24:14.827Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" version="15.9.1" etag="WKGqT-JkkxDR5iUpZYDw" type="github"><diagram id="cGamF1gfhKxS1C0eZHP7">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-12-08T07:07:07.267Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="NsCDXpuQSHxOWcF5Galf" version="15.9.1" type="github">
+  <diagram id="cGamF1gfhKxS1C0eZHP7" name="第 1 页">
+    <mxGraphModel dx="1622" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="200" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-1" value="腾讯云Udesk服务集群" style="swimlane;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="90" width="310" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-2" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.server;" vertex="1" parent="gwvdaRx8yuAEXZ8qHjm_-1">
+          <mxGeometry x="110" y="85" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-7" value="UdeskApp服务器" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="gwvdaRx8yuAEXZ8qHjm_-1">
+          <mxGeometry x="138" y="185" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-14" value="需求访问呼市IDC内来也机器服务的Udesk服务器IP如下:&lt;br&gt;&lt;div&gt;172.23.15.168&lt;/div&gt;&lt;div&gt;172.23.15.190&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="gwvdaRx8yuAEXZ8qHjm_-1">
+          <mxGeometry y="260" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-8" value="呼市IDC" style="swimlane;" vertex="1" parent="1">
+          <mxGeometry x="540" y="90" width="320" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-9" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.server;" vertex="1" parent="gwvdaRx8yuAEXZ8qHjm_-8">
+          <mxGeometry x="115" y="85" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-11" value="来也机器服务" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="gwvdaRx8yuAEXZ8qHjm_-8">
+          <mxGeometry x="133" y="185" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-15" value="需要开放给腾讯云Udesk服务器的来也服务IP:&lt;br&gt;&lt;div&gt;生产环境地址:&amp;nbsp;&lt;/div&gt;&lt;div&gt;10.114.1.209:80&lt;/div&gt;&lt;div&gt;测试环境地址:&lt;/div&gt;&lt;div&gt;10.60.139.21:80&lt;/div&gt;&lt;div&gt;10.141.2.102:80&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="gwvdaRx8yuAEXZ8qHjm_-8">
+          <mxGeometry x="5" y="250" width="310" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;" edge="1" parent="1" source="gwvdaRx8yuAEXZ8qHjm_-2" target="gwvdaRx8yuAEXZ8qHjm_-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gwvdaRx8yuAEXZ8qHjm_-13" value="访问来也机器人的接口&#xa;POST /v1/msg/bot-response" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gwvdaRx8yuAEXZ8qHjm_-12">
+          <mxGeometry x="-0.1942" y="-3" relative="1" as="geometry">
+            <mxPoint x="21" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
