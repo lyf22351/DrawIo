@@ -1,0 +1,485 @@
+<mxfile host="Electron" modified="2023-12-11T08:43:56.094Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.4.0 Chrome/112.0.5615.204 Electron/24.5.1 Safari/537.36" etag="9xXQ5x7OGE2xIKsacoaN" version="21.4.0" type="device">
+  <diagram name="第 1 页" id="zHrm0nvE2TwnEJXsrC4k">
+    <mxGraphModel dx="3116" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HSYq-DEkqpeN6BUA75g3-8" value="&lt;h1&gt;当前系统中的问题&lt;/h1&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;1. 无法明确的获取到当前客户正在那个聊天流程中, 比如客户是在排队中 还是 在会话中? 现在只能以一个顺序的判断各个流程的开闭状态来判断当前客户的接待状态&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp; &amp;nbsp;就以分配会话为例(下面的判断必须逐个判断. 否则就会出现问题):&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 1. 如果客户已经有一个开启的会话, 那么他就是在会话中&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;2. 如果客户已经有一个开启的排队, 那么他就是在排队中&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;3. 如果客户既不排队 也不会话, 才能真正的创建会话.&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp; &amp;nbsp;每次分配会话都要执行上面的判断,很蛋疼. 就因为我们拿不到一个客户当前的所处的具体服务阶段&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;2. 即将引入的机器人功能中,涉及到转人工的状态(即需要明确的知道当前客户是否在机器人服务中),这个转人工的状态没有合适的主体进行存储.&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;3. 无法直接获取到一个客户从进线到离开中经历的所有流程,&amp;nbsp; 也无法通过一个流程方便的反查出客户在本次进线所有经历的流程. 简而言之就是没有一个实体串联其一个客户在一次进线中经历的所有流程&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 14px; background-color: initial;&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;font-size: 14px; background-color: initial;&quot;&gt;4. IM系统整体的代码实现 和 整体概念 跟产品构想出现了偏差, 对后续实现产品需求会造成影响&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;" style="text;html=1;strokeColor=#1A1A1A;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=none;fontFamily=Courier New;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="-1305.61" y="40" width="932.61" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="HSYq-DEkqpeN6BUA75g3-7" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;引入新概念&lt;/font&gt;&lt;/b&gt;" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=150;height=40;fontFamily=Courier New;strokeColor=#1A1A1A;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="-1309.3" y="570" width="940" height="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="HSYq-DEkqpeN6BUA75g3-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;ChatJourney&lt;/font&gt;&lt;br&gt;用来描述客户的一次进线" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;fontFamily=Courier New;html=1;swimlaneFillColor=none;strokeColor=#1A1A1A;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="-1103" y="580" width="534.77" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="HSYq-DEkqpeN6BUA75g3-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;+ stage: tinyint&amp;nbsp;&lt;/b&gt;Journey的阶段.&lt;br&gt;&lt;/font&gt;&lt;br&gt;&amp;nbsp; 在即时通讯服务客户的过程中, 可能会经过机器人服务, 排队, 留言, 人工接待等多个阶段.&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;stage&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;字段用来标记当前客户正处在那个服务阶段中&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;stage 枚举&lt;br&gt;&lt;/b&gt;0: 初始化阶段&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;未进入任何状态, 客户在Chat分配过程中会处于这个状态&lt;br&gt;1: 机器人阶段&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;客户与机器人进行沟通&lt;br&gt;2: 无人接待阶段&amp;nbsp; &amp;nbsp; &amp;nbsp;所有座席都离线, 无人进行接待&lt;br&gt;3. 无人接待排队阶段&amp;nbsp; 所有座席都离线, 并进入排队&lt;br&gt;4. 客服忙碌排队阶段&amp;nbsp; 所有座席都忙碌, 并进入排队&lt;br&gt;5. 人工接待阶段&amp;nbsp; &amp;nbsp; &amp;nbsp;有客服空闲, 并进行了接待&lt;br&gt;&lt;br&gt;&lt;b&gt;每当阶段更新时, 就更新ChatJourney的stage字段&lt;/b&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="50" width="534.77" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="HSYq-DEkqpeN6BUA75g3-5" value="&lt;font style=&quot;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;+ current_stage_id: bigint&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;当前所处阶段ID&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;每当阶段变更时,就更新ChatJourney的&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;current_stage_id&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="280" width="534.77" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HSYq-DEkqpeN6BUA75g3-6" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;+ state: tinyint &lt;/b&gt;用来表述本次客户进线旅程状态&lt;br&gt;&lt;br&gt;&lt;span style=&quot;border-color: var(--border-color); font-size: 12px;&quot;&gt;&lt;b&gt;state 枚举&lt;/b&gt;&lt;br&gt;0: 开始&lt;br&gt;1: 结束&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/span&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="340" width="534.77" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-9" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;+ channel: tinyint 用来记录当前客户路程的渠道&lt;/b&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color); font-size: 12px;&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="440" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-10" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;+ channel_id:&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;bigint&lt;/b&gt;&lt;b&gt;&amp;nbsp;用来记录当前客户路程的渠道ID&lt;/b&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color); font-size: 12px;&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="480" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;+ customer_id:&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;bigint&lt;/b&gt;&lt;b&gt;&amp;nbsp;用来记录当前客户路程的渠道ID&lt;/b&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color); font-size: 12px;&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="520" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-11" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;+ tenant_id: bigint 租户ID&lt;/b&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="HSYq-DEkqpeN6BUA75g3-1" vertex="1">
+          <mxGeometry y="560" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-12" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;ChatJourneyStage&lt;br&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp; 用来记录客户在一次进线中经历的一个具体阶段, 该数据关联一个唯一的ChatJourney 并 关联一个具体的流程(比如机器人会话, 人工会话, 排队记录)&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp; 每次客户在当前进线中进入一个新的阶段, 都会生成一个对应的ChatStage. 因此通过一个ChatJourney就可以按照顺序找到当前客户在当次尽显经历的所有阶段. 根据这些阶段就可以找到经历的具体流程&lt;/span&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=110;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;fontFamily=Courier New;html=1;swimlaneFillColor=none;strokeColor=#1A1A1A;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="-1103" y="1201" width="534.77" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-14" value="&lt;font style=&quot;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;+ chat_journey_id: bigint 所属chatJourney的ID&lt;/b&gt;&lt;br&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-12" vertex="1">
+          <mxGeometry y="110" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-15" value="&lt;font style=&quot;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;+ category: tinyint 用来标记当前阶段对应的过程实体类型&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;category枚举&lt;br&gt;&lt;/font&gt;&lt;/b&gt;0: session&lt;br&gt;1: queue&lt;br&gt;2: robot_session&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/span&gt;&lt;/font&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-12" vertex="1">
+          <mxGeometry y="150" width="534.77" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-20" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;+ tenant_id:&amp;nbsp;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;bigint&lt;/b&gt;&amp;nbsp;租户ID&lt;/b&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-12" vertex="1">
+          <mxGeometry y="270" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-19" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;+ session_id:&amp;nbsp;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;bigint&lt;/b&gt;&lt;/b&gt;&amp;nbsp;人工会话ID&lt;/b&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-12" vertex="1">
+          <mxGeometry y="310" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-21" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;+ robot_session_id:&amp;nbsp;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;bigint&lt;/b&gt;&lt;/b&gt;&amp;nbsp;机器人会话ID&lt;/b&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-12" vertex="1">
+          <mxGeometry y="350" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-22" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;+ chat_queue_id:&amp;nbsp;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;bigint&lt;/b&gt;&lt;/b&gt;&amp;nbsp;排队记录ID&lt;/b&gt;" style="text;strokeColor=#1A1A1A;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-12" vertex="1">
+          <mxGeometry y="390" width="534.77" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-23" value="" style="endArrow=none;html=1;rounded=0;jumpStyle=none;strokeWidth=6;fontFamily=Courier New;shadow=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1690" y="1870" as="sourcePoint" />
+            <mxPoint x="2520" y="1870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-44" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;会话分配&amp;nbsp; 与&amp;nbsp;&amp;nbsp;&lt;span style=&quot;&quot;&gt;ChatJourney&lt;/span&gt;&lt;/font&gt;" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=60;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontFamily=Courier New;" parent="1" vertex="1">
+          <mxGeometry x="-1440" y="2050" width="3270" height="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-45" value="客户进线" style="swimlane;startSize=20;html=1;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-44" vertex="1">
+          <mxGeometry y="60" width="240" height="1050" as="geometry">
+            <mxRectangle y="60" width="40" height="420" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-25" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Customer&lt;/b&gt;&lt;/font&gt;" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-45" vertex="1">
+          <mxGeometry x="18.5" y="80" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-28" value="客户通过&lt;br style=&quot;border-color: var(--border-color); font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;Web&lt;br&gt;Weixin&lt;br&gt;WhatsApp&lt;br&gt;渠道进线&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;glass=0;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-45" vertex="1">
+          <mxGeometry x="120" y="66.25" width="88.5" height="87.5" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-45" source="_Yov0zkDi3JZWy17VWp6-25" target="_Yov0zkDi3JZWy17VWp6-28" edge="1">
+          <mxGeometry x="0.177" relative="1" as="geometry">
+            <mxPoint x="612.25" y="190" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-44" source="_Yov0zkDi3JZWy17VWp6-28" target="_Yov0zkDi3JZWy17VWp6-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="415" y="122.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-46" value="会话分配阶段" style="swimlane;startSize=20;html=1;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-44" vertex="1">
+          <mxGeometry x="240" y="60" width="3030" height="1050" as="geometry">
+            <mxRectangle x="230" width="110" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-99" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-46" source="_Yov0zkDi3JZWy17VWp6-32" target="_Yov0zkDi3JZWy17VWp6-64" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-100" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;是&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-99" vertex="1" connectable="0">
+          <mxGeometry x="-0.2187" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-95" value="识别已有ChatJourney" style="swimlane;startSize=20;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#7ea6e0;fontFamily=Courier New;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-46" vertex="1">
+          <mxGeometry x="240" y="20" width="540" height="1030" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-64" target="_Yov0zkDi3JZWy17VWp6-104" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110.87999999999987" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-112" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-64" target="_Yov0zkDi3JZWy17VWp6-110" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-113" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-64" target="_Yov0zkDi3JZWy17VWp6-115" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-120" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-64" target="_Yov0zkDi3JZWy17VWp6-118" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-64" target="_Yov0zkDi3JZWy17VWp6-122" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-64" value="" style="shape=switch;whiteSpace=wrap;html=1;rotation=-45;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="80.88" y="680" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-104" target="_Yov0zkDi3JZWy17VWp6-105" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-104" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;ChatJourney&lt;br&gt;机器人阶段&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="54.440000000000005" y="590" width="112.87" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-105" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage =&amp;nbsp;1&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="50.88" y="470" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-110" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;ChatJourney&lt;br&gt;无人接待阶段&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="258.57000000000005" y="590" width="112.87" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-111" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 2&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="250" y="470" width="130" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-110" target="_Yov0zkDi3JZWy17VWp6-111" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-115" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;ChatJourney&lt;br&gt;无人接待排队阶段&lt;br&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="258.56000000000006" y="690" width="112.87" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-116" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 3&amp;nbsp;&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="410" y="670" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.043;entryY=0.493;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-115" target="_Yov0zkDi3JZWy17VWp6-116" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-118" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;ChatJourney&lt;br&gt;客服忙碌排队阶段&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="258.57000000000005" y="790" width="112.87" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-119" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 4&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="410" y="770" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-118" target="_Yov0zkDi3JZWy17VWp6-119" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-122" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;ChatJourney&lt;br&gt;人工会话阶段&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="54.44" y="790" width="112.87" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-123" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 5&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-95" vertex="1">
+          <mxGeometry x="50.88" y="870" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-95" source="_Yov0zkDi3JZWy17VWp6-122" target="_Yov0zkDi3JZWy17VWp6-123" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-101" value="查询ChatJourney" style="swimlane;startSize=20;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#7ea6e0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-46" vertex="1">
+          <mxGeometry y="20" width="240" height="1030" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-33" value="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;根据&lt;br&gt;CustomerId&lt;br&gt;Channel&lt;br&gt;ChannelId&lt;br&gt;&lt;b&gt;正在开启状态&lt;/b&gt;&lt;br&gt;查询ChatJourney记录&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;glass=0;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-101" vertex="1">
+          <mxGeometry x="52.37" y="47.75" width="155.25" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-32" value="是否查询到了ChatJourney" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-101" vertex="1">
+          <mxGeometry x="32.71" y="178" width="194.57" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-101" source="_Yov0zkDi3JZWy17VWp6-33" target="_Yov0zkDi3JZWy17VWp6-32" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="117.63636363636328" y="158.25467230769937" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-47" value="创建ChatJourney" style="swimlane;startSize=20;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#7ea6e0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-46" vertex="1">
+          <mxGeometry x="780" y="20" width="210" height="1030" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-301" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="_Yov0zkDi3JZWy17VWp6-47" source="_Yov0zkDi3JZWy17VWp6-42" target="_Yov0zkDi3JZWy17VWp6-55" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-42" value="根据&lt;br&gt;CustomerId&lt;br&gt;Channel &lt;br&gt;ChannelId&lt;br&gt;创建一个&lt;b&gt;初始状态&lt;/b&gt;的ChatJourney" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-47" vertex="1">
+          <mxGeometry x="32.51" y="173" width="127.5" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-55" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 0 (init)&lt;br&gt;state = 0 (start)&lt;br&gt;channel = 0 (web)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-47" vertex="1">
+          <mxGeometry x="34.39000000000001" y="310" width="124.62" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-46" source="_Yov0zkDi3JZWy17VWp6-32" target="_Yov0zkDi3JZWy17VWp6-42" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-54" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;否&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-53" vertex="1" connectable="0">
+          <mxGeometry x="-0.2357" y="-1" relative="1" as="geometry">
+            <mxPoint x="-127" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-127" value="机器人阶段" style="swimlane;startSize=20;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-46" vertex="1">
+          <mxGeometry x="990" y="20" width="340" height="1030" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-133" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" source="_Yov0zkDi3JZWy17VWp6-129" target="_Yov0zkDi3JZWy17VWp6-132" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-129" value="检查渠道机器人配置" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="20.32" y="70" width="127.49" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-135" value="&lt;b&gt;支持&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-127" source="_Yov0zkDi3JZWy17VWp6-132" target="_Yov0zkDi3JZWy17VWp6-134" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-132" value="支持机器人接待" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="22.189999999999998" y="180" width="123.75" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-137" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-127" source="_Yov0zkDi3JZWy17VWp6-134" target="_Yov0zkDi3JZWy17VWp6-136" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-134" value="创建机器人会话&lt;br&gt;(RobotSession)" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="27.190000000000005" y="275" width="113.75" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-139" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-127" source="_Yov0zkDi3JZWy17VWp6-136" target="_Yov0zkDi3JZWy17VWp6-138" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-127" source="_Yov0zkDi3JZWy17VWp6-136" target="_Yov0zkDi3JZWy17VWp6-142" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="96.25500000000011" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-136" value="创建ChatJourneyStage" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="20" y="375" width="128.13" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-138" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourneyStage&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;category = 2&lt;br&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;chat_journey_id&lt;/font&gt;&lt;/span&gt;&amp;nbsp;= xx&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="170" y="357.96999999999997" width="160" height="74.06" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-127" source="_Yov0zkDi3JZWy17VWp6-142" target="_Yov0zkDi3JZWy17VWp6-143" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-142" value="更新&lt;br&gt;ChatJourney&lt;br&gt;状态" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="36.260000000000005" y="510" width="95.62" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-143" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 1&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-127" vertex="1">
+          <mxGeometry x="170" y="489.5" width="124.62" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-46" source="_Yov0zkDi3JZWy17VWp6-42" target="_Yov0zkDi3JZWy17VWp6-129" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-145" value="人工服务阶段" style="swimlane;startSize=20;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientColor=#7ea6e0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-46" vertex="1">
+          <mxGeometry x="1330" y="20" width="1700" height="1030" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-161" value="无人接待阶段" style="swimlane;startSize=20;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-145" vertex="1">
+          <mxGeometry x="210" y="20" width="840" height="1010" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-244" value="仅无人接待" style="swimlane;startSize=20;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-161" vertex="1">
+          <mxGeometry x="220" y="21.5" width="290" height="988.5" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-288" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="_Yov0zkDi3JZWy17VWp6-244" source="_Yov0zkDi3JZWy17VWp6-250" target="_Yov0zkDi3JZWy17VWp6-287" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-250" value="处理无人接待逻辑" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-244" vertex="1">
+          <mxGeometry x="18" y="257.5" width="110" height="30.5" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-256" value="更新&lt;br&gt;ChatJourney&lt;br&gt;状态" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-244" vertex="1">
+          <mxGeometry x="25.189999999999934" y="494.75" width="95.62" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-252" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="_Yov0zkDi3JZWy17VWp6-244" source="_Yov0zkDi3JZWy17VWp6-287" target="_Yov0zkDi3JZWy17VWp6-256" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="84.49500000000012" y="449.75" as="targetPoint" />
+            <mxPoint x="72.99999999999966" y="399.3800000000001" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-257" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 2&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-244" vertex="1">
+          <mxGeometry x="152.62" y="477.25" width="124.62" height="97.88" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-255" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-244" source="_Yov0zkDi3JZWy17VWp6-256" target="_Yov0zkDi3JZWy17VWp6-257" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-287" value="无人接待状态不建立ChatJourneyStage数据&lt;br&gt;&lt;br&gt;&amp;nbsp;原因是,无人接待阶段没有需要关联的数据, 只是在ChatJourney中记录无人服务状态" style="whiteSpace=wrap;html=1;fontFamily=Courier New;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-244" vertex="1">
+          <mxGeometry x="13" y="353.25" width="266.62" height="65.75" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-245" value="无人接待排队" style="swimlane;startSize=20;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-161" vertex="1">
+          <mxGeometry x="510" y="21.5" width="330" height="988.5" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-260" value="处理无人接待排队逻辑" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-245" vertex="1">
+          <mxGeometry x="13" y="58.5" width="128" height="25.38" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-261" value="创建ChatJourneyStage" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-245" vertex="1">
+          <mxGeometry x="17.63" y="158.19" width="118.75" height="43.13" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-259" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-245" source="_Yov0zkDi3JZWy17VWp6-260" target="_Yov0zkDi3JZWy17VWp6-261" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-262" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourneyStage&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;category = 2&lt;br&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;chat_journey_id&lt;/font&gt;&lt;/span&gt;&amp;nbsp;= xx&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-245" vertex="1">
+          <mxGeometry x="160" y="142.72000000000003" width="160" height="74.06" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-263" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-245" source="_Yov0zkDi3JZWy17VWp6-261" target="_Yov0zkDi3JZWy17VWp6-262" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-264" value="更新&lt;br&gt;ChatJourney&lt;br&gt;状态" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-245" vertex="1">
+          <mxGeometry x="29.069999999999936" y="294.7500000000002" width="95.62" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-265" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-245" source="_Yov0zkDi3JZWy17VWp6-261" target="_Yov0zkDi3JZWy17VWp6-264" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="76.87500000000011" y="249.75000000000023" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-266" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 3&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-245" vertex="1">
+          <mxGeometry x="160" y="273.25" width="124.62" height="91.76" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-267" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-245" source="_Yov0zkDi3JZWy17VWp6-264" target="_Yov0zkDi3JZWy17VWp6-266" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-249" value="&lt;b&gt;不支持&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-161" source="_Yov0zkDi3JZWy17VWp6-248" target="_Yov0zkDi3JZWy17VWp6-250" edge="1">
+          <mxGeometry x="-0.4751" relative="1" as="geometry">
+            <mxPoint x="240" y="294.87" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-268" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="_Yov0zkDi3JZWy17VWp6-161" source="_Yov0zkDi3JZWy17VWp6-248" target="_Yov0zkDi3JZWy17VWp6-260" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="294.87" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-269" value="&lt;b&gt;支持&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-268" vertex="1" connectable="0">
+          <mxGeometry x="-0.1922" y="1" relative="1" as="geometry">
+            <mxPoint x="-87" y="106" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-248" value="支持不在线排队" style="rhombus;whiteSpace=wrap;html=1;rounded=1;shadow=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-161" vertex="1">
+          <mxGeometry x="30" y="254.37" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-232" value="人工座席判断" style="swimlane;startSize=20;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-145" vertex="1">
+          <mxGeometry y="20" width="210" height="1010" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-239" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-232" source="_Yov0zkDi3JZWy17VWp6-236" target="_Yov0zkDi3JZWy17VWp6-238" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-236" value="判断人工在线状态" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-232" vertex="1">
+          <mxGeometry x="11" y="163.87" width="127.49" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-241" value="&lt;b&gt;有座席在线&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-232" source="_Yov0zkDi3JZWy17VWp6-238" target="_Yov0zkDi3JZWy17VWp6-240" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-238" value="是否有座席在线" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-232" vertex="1">
+          <mxGeometry x="16.61" y="263.87" width="116.26" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-240" value="判断座席忙碌状态" style="rhombus;whiteSpace=wrap;html=1;rounded=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-232" vertex="1">
+          <mxGeometry x="16.610000000000007" y="623.87" width="116.26" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-246" value="&lt;b&gt;全部&lt;br&gt;不在线&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.954;exitY=0.47;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-145" source="_Yov0zkDi3JZWy17VWp6-238" target="_Yov0zkDi3JZWy17VWp6-248" edge="1">
+          <mxGeometry x="-0.2036" y="1" relative="1" as="geometry">
+            <mxPoint x="250" y="314.37" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="128" y="314.87" />
+              <mxPoint x="170" y="314.87" />
+              <mxPoint x="170" y="313.87" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-270" value="进入排队" style="swimlane;startSize=20;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-145" vertex="1">
+          <mxGeometry x="1050" y="20" width="330" height="1010" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-286" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" source="_Yov0zkDi3JZWy17VWp6-272" target="_Yov0zkDi3JZWy17VWp6-279" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-272" value="进行排队处理" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" vertex="1">
+          <mxGeometry x="18.5" y="684.87" width="127.49" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-279" value="创建ChatJourneyStage" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" vertex="1">
+          <mxGeometry x="23.5" y="772.8399999999998" width="118.75" height="43.13" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-280" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourneyStage&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;category = 2&lt;br&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;chat_journey_id&lt;/font&gt;&lt;/span&gt;&amp;nbsp;= xx&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-270" vertex="1">
+          <mxGeometry x="165.8699999999999" y="757.37" width="160" height="74.06" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-281" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" source="_Yov0zkDi3JZWy17VWp6-279" target="_Yov0zkDi3JZWy17VWp6-280" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-282" value="更新&lt;br&gt;ChatJourney&lt;br&gt;状态" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" vertex="1">
+          <mxGeometry x="34.940000000000055" y="909.4000000000001" width="95.62" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-283" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" source="_Yov0zkDi3JZWy17VWp6-279" target="_Yov0zkDi3JZWy17VWp6-282" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="82.74500000000012" y="864.4000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-284" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 4&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-270" vertex="1">
+          <mxGeometry x="165.87" y="886.6700000000001" width="124.62" height="95.47" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-285" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-270" source="_Yov0zkDi3JZWy17VWp6-282" target="_Yov0zkDi3JZWy17VWp6-284" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-277" value="&lt;b&gt;全部忙碌&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-145" source="_Yov0zkDi3JZWy17VWp6-240" target="_Yov0zkDi3JZWy17VWp6-272" edge="1">
+          <mxGeometry x="-0.7477" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;exitX=1;exitY=0.5;exitDx=0;exitDy=0;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-46" source="_Yov0zkDi3JZWy17VWp6-132" target="_Yov0zkDi3JZWy17VWp6-236" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1149.13" y="352.5" as="sourcePoint" />
+            <mxPoint x="1391" y="353" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-160" value="&lt;b&gt;不支持&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Courier New;" parent="_Yov0zkDi3JZWy17VWp6-159" vertex="1" connectable="0">
+          <mxGeometry x="-0.1613" y="-2" relative="1" as="geometry">
+            <mxPoint x="-31" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-289" value="进入会话" style="swimlane;startSize=20;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;fontFamily=Courier New;" parent="1" vertex="1">
+          <mxGeometry x="1510" y="2150" width="320" height="1010" as="geometry">
+            <mxRectangle x="550" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-290" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" source="_Yov0zkDi3JZWy17VWp6-291" target="_Yov0zkDi3JZWy17VWp6-292" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-291" value="进行建立会话处理" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" vertex="1">
+          <mxGeometry x="5.129999999999999" y="633.87" width="127.49" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-292" value="创建ChatJourneyStage" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" vertex="1">
+          <mxGeometry x="10.129999999999999" y="721.8399999999998" width="118.75" height="43.13" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-293" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourneyStage&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;category = 2&lt;br&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;chat_journey_id&lt;/font&gt;&lt;/span&gt;&amp;nbsp;= xx&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-289" vertex="1">
+          <mxGeometry x="152.4999999999999" y="706.37" width="160" height="74.06" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-294" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" source="_Yov0zkDi3JZWy17VWp6-292" target="_Yov0zkDi3JZWy17VWp6-293" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-295" value="更新&lt;br&gt;ChatJourney&lt;br&gt;状态" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" vertex="1">
+          <mxGeometry x="21.570000000000054" y="858.4000000000001" width="95.62" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-296" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" source="_Yov0zkDi3JZWy17VWp6-292" target="_Yov0zkDi3JZWy17VWp6-295" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="69.37500000000011" y="813.4000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-297" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px; text-decoration: underline;&quot;&gt;&lt;b&gt;Object: ChatJourney&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;stage = 5&lt;br&gt;state = 0&lt;br&gt;channel = 0&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Courier New;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;rounded=1;" parent="_Yov0zkDi3JZWy17VWp6-289" vertex="1">
+          <mxGeometry x="152.5" y="835.67" width="124.62" height="95.47" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-298" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;shadow=1;" parent="_Yov0zkDi3JZWy17VWp6-289" source="_Yov0zkDi3JZWy17VWp6-295" target="_Yov0zkDi3JZWy17VWp6-297" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Yov0zkDi3JZWy17VWp6-243" value="&lt;b&gt;有座席在线&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Courier New;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="_Yov0zkDi3JZWy17VWp6-240" target="_Yov0zkDi3JZWy17VWp6-291" edge="1">
+          <mxGeometry x="-0.9223" relative="1" as="geometry">
+            <mxPoint x="170" y="2903.87" as="sourcePoint" />
+            <mxPoint x="204.69999999999982" y="2915.37" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="263" y="2806.87" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
